@@ -13,7 +13,7 @@ public class destroySelf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 0.02f);
         Debug.Log("Destroyed Self");
     }
 }
