@@ -13,22 +13,23 @@ public class IngotScript : MonoBehaviour
     
     [SerializeField]
     GameObject IngotPixel;
+ 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 1; i <= width; i++)
+        for (int i = 0; i <= width; i++)
         {
-            for (int j = 1; j <= height; j++)
+            for (int j = 0; j <= height; j++)
             {
-                for (int k = 1; k <= depth; k++)
+                for (int k = 0; k <= depth; k++)
                 {
-                    Vector3 nextPos = new Vector3(transform.position.y + (i * yOffset), transform.position.x + (j * xOffset), transform.position.z + (k * zOffset));
+                    Vector3 nextPos = new Vector3 ((i * yOffset) + transform.position.y, (j * xOffset) + transform.position.x , (k * zOffset) + transform.position.z);
                     Instantiate(IngotPixel, nextPos, Quaternion.identity, transform);
                 }
             }
         }
 
-        transform.position = new Vector3(-0.5f, 2.4f,0);
+        
     }
-
+   
 }
