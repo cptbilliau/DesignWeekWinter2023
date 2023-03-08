@@ -64,7 +64,10 @@ public class DestroyBlocks : MonoBehaviour
                 {
 
                     GameObject newObject = Instantiate(DestroyCollider, hit.point, Quaternion.identity);
+                    //instantiate the particle effects
                     newObject.transform.localScale = new Vector3(chargeTimer, chargeTimer, chargeTimer);
+                    //sound effect plays
+                    GetComponent<MusicManager>().anvilHit();
 
                     isCharging = false;
 
@@ -109,24 +112,31 @@ public class DestroyBlocks : MonoBehaviour
 
         else
         {
-            if(Input.GetMouseButtonDown(0))
-            Debug.Log("The metal is too cold to shape!");
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("The metal is too cold to shape!");
+                //music plays
+                GetComponent<MusicManager>().anvilDud();
+            }
         }
     }
 
     public void HeatButtonClick()
     {
+
         if (brittleLevel <= 2)
         {
             Debug.Log("Heat Button Message Recieved");
             heatLevel = 100;
             brittleLevel += 1.0f;
+            GetComponent<MusicManager>().forgeSFX();
         }
-
         else
         {
 
             Debug.Log("Metal too brittle");
+          //  GetComponent<MusicManager>().anvilDud();
+
         }
     }
 }

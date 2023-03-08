@@ -27,6 +27,11 @@ public class MusicManager : MonoBehaviour
     public AudioSource dudAnvilC;
     public AudioSource dudAnvilD;
     public AudioSource dudAnvilE;
+    [Header("Menu SFX")]
+    public AudioSource Forge;
+    public AudioSource Water;
+
+
 
 
 
@@ -111,7 +116,7 @@ public class MusicManager : MonoBehaviour
 
     }
 
-    void anvilHit()
+    public void anvilHit()
     {
         int rando = Random.Range(1, 4);
 
@@ -126,7 +131,7 @@ public class MusicManager : MonoBehaviour
             anvilE.Play();
         }
     }
-    void anvilDud()
+    public void anvilDud()
     {
 
         int rando = Random.Range(1, 4);
@@ -144,5 +149,22 @@ public class MusicManager : MonoBehaviour
             dudAnvilE.Play();
         }
     }
+
+    public void forgeSFX()
+    {
+        if(Forge.isPlaying != true)
+        {
+            Forge.Play();
+        }
+    }
+    public void waterSFX()
+    {
+        if (Water.isPlaying != true)
+        {
+            Water.Play();
+        }
+    }
+
+
 
 }
