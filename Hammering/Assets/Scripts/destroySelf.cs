@@ -15,6 +15,6 @@ public class destroySelf : MonoBehaviour
     void Update()
     {
         Destroy(gameObject, 2f);
-        Debug.Log("Destroyed Self");
+        //Debug.Log("Destroyed Self");
     }
 }

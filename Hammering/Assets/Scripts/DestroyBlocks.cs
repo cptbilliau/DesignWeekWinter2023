@@ -5,6 +5,11 @@ using UnityEngine;
 public class DestroyBlocks : MonoBehaviour
 {
     public GameObject DestroyCollider;
+
+    public float heatLevel = 100;
+    public float brittleLevel = 0;
+    public float heatCoolingSpeed = 4.0f;
+
     Camera cam;
     [SerializeField]
     bool isCharging;
@@ -16,11 +21,23 @@ public class DestroyBlocks : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        
     }
+
 
     // Update is called once per frame
     void Update()
     {
+        if (heatLevel >= 0)
+        {
+            heatLevel -= heatCoolingSpeed * Time.deltaTime;
+        }
+
+        if (heatLevel <= 0)
+        {
+            Debug.Log("Metal is cold");
+        }
+
         Vector3 Mousepos = Input.mousePosition;
         Mousepos.z = 10f;
         Mousepos = cam.ScreenToWorldPoint(Mousepos);
@@ -83,6 +100,22 @@ public class DestroyBlocks : MonoBehaviour
 
             chargeTimer = 0;
             goingDown = false;
+        }
+    }
+
+    public void HeatButtonClick()
+    {
+        if (brittleLevel <= 2)
+        {
+            Debug.Log("Heat Button Message Recieved");
+            heatLevel = 100;
+            brittleLevel += 1.0f;
+        }
+
+        else
+        {
+
+            Debug.Log("Metal too brittle");
         }
     }
 }
