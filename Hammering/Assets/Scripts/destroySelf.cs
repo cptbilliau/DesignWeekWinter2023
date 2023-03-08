@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class destroySelf : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,7 @@ public class destroySelf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 0.02f);
+        Destroy(gameObject, 2f);
         Debug.Log("Destroyed Self");
     }
 }
