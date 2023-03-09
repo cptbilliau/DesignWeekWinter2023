@@ -11,6 +11,7 @@ Material:
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _EMISSION
+  - _GLOSSYREFLECTIONS_OFF
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -64,8 +65,8 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.275
-    - _GlossyReflections: 1
+    - _Glossiness: 0.305
+    - _GlossyReflections: 0
     - _Metallic: 1
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -76,6 +77,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.8584906, g: 0.42925245, b: 0.08503916, a: 0}
-    - _EmissionColor: {r: 1.4514947, g: 0.17735136, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.57697016, b: 0.2688679, a: 0}
+    - _EmissionColor: {r: 1.6087888, g: 0.26186717, b: 0.06829761, a: 1}
   m_BuildTextureStacks: []

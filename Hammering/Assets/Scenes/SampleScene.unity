@@ -570,10 +570,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: efaf2bbeac793274fae3bfabe4333cce, type: 3}
-    m_FontSize: 23
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 45
     m_Alignment: 1
     m_AlignByGeometry: 1
@@ -1228,6 +1228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 978095269}
   - component: {fileID: 978095268}
+  - component: {fileID: 978095270}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1312,6 +1313,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 44.226, y: 5.24, z: 26.232}
+--- !u!114 &978095270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978095267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &987041667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 987041669}
   - component: {fileID: 987041668}
+  - component: {fileID: 987041670}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -1341,9 +1363,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2.68
+  m_Intensity: 11.52
   m_Range: 27.261818
-  m_SpotAngle: 30
+  m_SpotAngle: 111.116646
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -1380,7 +1402,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1399,13 +1421,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987041667}
   m_LocalRotation: {x: 0.04852628, y: -0, z: -0, w: 0.9988219}
-  m_LocalPosition: {x: 1.91, y: -0.08, z: -15.2}
+  m_LocalPosition: {x: 2.11, y: 3.33, z: -13.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 5.563, y: 0, z: 0}
+--- !u!114 &987041670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987041667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1005608584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,7 +1709,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1990.11, y: 787.8}
+  m_SizeDelta: {x: 2133, y: 1891.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1087858906
 MonoBehaviour:
@@ -2468,6 +2510,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 987047219781912957, guid: e7421320d953e00478858e563b31ec95, type: 3}
+      propertyPath: myGradient.ctime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 987047219781912957, guid: e7421320d953e00478858e563b31ec95, type: 3}
+      propertyPath: myGradient.key2.b
+      value: 0.0990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 987047219781912957, guid: e7421320d953e00478858e563b31ec95, type: 3}
+      propertyPath: myGradient.key2.g
+      value: 0.23488596
+      objectReference: {fileID: 0}
+    - target: {fileID: 987047219781912957, guid: e7421320d953e00478858e563b31ec95, type: 3}
+      propertyPath: myGradient.key2.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8409921794736351289, guid: e7421320d953e00478858e563b31ec95, type: 3}
       propertyPath: m_RootOrder
       value: 5
