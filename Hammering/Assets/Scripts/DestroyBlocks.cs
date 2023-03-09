@@ -164,7 +164,6 @@ public class DestroyBlocks : MonoBehaviour
         {
             Debug.Log("Heat Button Message Recieved");
             heatLevel = 100;
-            brittleLevel += 1.0f;
             GetComponent<MusicManager>().forgeSFX();
         }
         else
