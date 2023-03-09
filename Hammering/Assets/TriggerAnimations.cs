@@ -13,6 +13,13 @@ public class TriggerAnimations : MonoBehaviour
 
     public GameObject spawnPoint;
 
+
+    public void Start()
+    {
+        FindObjectOfType<Camera>().GetComponent<DestroyBlocks>().heatLevel = 100;
+
+    }
+
     public void forgeActivate()
     {
         anim = GameObject.FindGameObjectWithTag("CUBE").GetComponent<Animator>();
@@ -30,8 +37,19 @@ public class TriggerAnimations : MonoBehaviour
     public void createNewCube()
     {
         FindObjectOfType<Camera>().GetComponent<spawnCube>().cubeMoment();
+
+
         Destroy(this.gameObject);
 
+
     }
+
+
+    public void reheat()
+    {
+        FindObjectOfType<Camera>().GetComponent<DestroyBlocks>().HeatButtonClick();
+
+    }
+
 
 }

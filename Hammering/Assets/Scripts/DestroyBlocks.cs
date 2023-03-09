@@ -16,6 +16,7 @@ public class DestroyBlocks : MonoBehaviour
     [SerializeField]
     public float chargeTimer;
     public GameObject burst;
+    public GameObject dudBurst;
     [SerializeField]
     bool goingDown;
     float colliderSize;
@@ -32,7 +33,7 @@ public class DestroyBlocks : MonoBehaviour
     {
         if (heatLevel >= 0)
         {
-            heatLevel -= heatCoolingSpeed * Time.deltaTime;
+            heatLevel -= heatCoolingSpeed * Time.deltaTime / 2;
         }
 
         if (heatLevel <= 0)
@@ -45,8 +46,8 @@ public class DestroyBlocks : MonoBehaviour
         Mousepos = cam.ScreenToWorldPoint(Mousepos);
         Debug.DrawRay(transform.position, Mousepos - transform.position, Color.blue);
 
-        if (heatLevel >= 0)
-        {
+        //if (heatLevel >= 0)
+        //{
             switch (chargeTimer)
             {
                 case > 0 and <= 0.5f:
@@ -79,22 +80,35 @@ public class DestroyBlocks : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit, 100))
                 {
-                    //instantiate the collider
-                    GameObject newObject = Instantiate(DestroyCollider, hit.point, Quaternion.identity);
-                    newObject.transform.localScale = new Vector3(colliderSize, colliderSize, colliderSize);
+                    if (heatLevel <= 0)
+                    {
+                        GameObject dudParticle = Instantiate(dudBurst, hit.point, Quaternion.identity);
+                        dudParticle.transform.localScale = new Vector3(colliderSize, colliderSize, colliderSize);
+                        isCharging = false;
+                    GetComponent<MusicManager>().anvilDud();
 
-                    //instantiate the particle effects
-                    GameObject particle = Instantiate(burst, hit.point, Quaternion.identity);
-                    particle.transform.localScale = new Vector3(colliderSize, colliderSize, colliderSize);
-                   
 
-                    //sound effect plays
-                    GetComponent<MusicManager>().anvilHit();
+                }//if hit when dud, spawn new particles
+                else
+                    {
 
-                    isCharging = false;
 
-                    Debug.Log(hit.transform.position);
+                        //instantiate the collider
+                        GameObject newObject = Instantiate(DestroyCollider, hit.point, Quaternion.identity);
+                        newObject.transform.localScale = new Vector3(colliderSize, colliderSize, colliderSize);
 
+                        //instantiate the particle effects
+                        GameObject particle = Instantiate(burst, hit.point, Quaternion.identity);
+                        particle.transform.localScale = new Vector3(colliderSize, colliderSize, colliderSize);
+
+
+                        //sound effect plays
+                        GetComponent<MusicManager>().anvilHit();
+
+                        isCharging = false;
+
+                        Debug.Log(hit.transform.position);
+                    }
 
 
                 }
@@ -130,17 +144,17 @@ public class DestroyBlocks : MonoBehaviour
                 chargeTimer = 0;
                 goingDown = false;
             }
-        }
+        //}
 
-        else
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("The metal is too cold to shape!");
-                //music plays
-                GetComponent<MusicManager>().anvilDud();
-            }
-        }
+        //else
+        //{
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        Debug.Log("The metal is too cold to shape!");
+        //        //music plays
+        //        GetComponent<MusicManager>().anvilDud();
+        //    }
+        //}
     }
 
     public void HeatButtonClick()

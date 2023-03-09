@@ -23,14 +23,14 @@ public class IngotScript : MonoBehaviour
         //    {
         //        for (int k = 0; k <= depth; k++)
         //        {
-        //            Vector3 nextPos = new Vector3 ((i * yOffset) + transform.position.y, (j * xOffset) + transform.position.x , (k * zOffset) + transform.position.z);
+        //            Vector3 nextPos = new Vector3((i * yOffset) + transform.position.y, (j * xOffset) + transform.position.x, (k * zOffset) + transform.position.z);
         //            Instantiate(IngotPixel, nextPos, Quaternion.identity, transform);
         //            IngotPixel.tag = "ingot";
         //        }
         //    }
         //}
 
-        
+
     }
 
     public void newCube()
