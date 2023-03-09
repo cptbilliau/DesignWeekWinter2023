@@ -17,19 +17,41 @@ public class IngotScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //for (int i = 0; i <= width; i++)
+        //{
+        //    for (int j = 0; j <= height; j++)
+        //    {
+        //        for (int k = 0; k <= depth; k++)
+        //        {
+        //            Vector3 nextPos = new Vector3 ((i * yOffset) + transform.position.y, (j * xOffset) + transform.position.x , (k * zOffset) + transform.position.z);
+        //            Instantiate(IngotPixel, nextPos, Quaternion.identity, transform);
+        //            IngotPixel.tag = "ingot";
+        //        }
+        //    }
+        //}
+
+        
+    }
+
+    public void newCube()
+    {
+        foreach (var gameObj in GameObject.FindGameObjectsWithTag("ingot") as GameObject[])
+        {
+            Destroy(gameObj);
+        }
+
         for (int i = 0; i <= width; i++)
         {
             for (int j = 0; j <= height; j++)
             {
                 for (int k = 0; k <= depth; k++)
                 {
-                    Vector3 nextPos = new Vector3 ((i * yOffset) + transform.position.y, (j * xOffset) + transform.position.x , (k * zOffset) + transform.position.z);
+                    Vector3 nextPos = new Vector3((i * yOffset) + transform.position.y, (j * xOffset) + transform.position.x, (k * zOffset) + transform.position.z);
                     Instantiate(IngotPixel, nextPos, Quaternion.identity, transform);
                 }
             }
         }
 
-        
     }
    
 }
