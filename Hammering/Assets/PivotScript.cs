@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PivotScript : MonoBehaviour
 {
-    float rotationSpeed = 1f;
+    float rotationSpeed = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
