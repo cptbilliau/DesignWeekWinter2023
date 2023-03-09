@@ -15,6 +15,7 @@ public class DestroyBlocks : MonoBehaviour
     bool isCharging;
     [SerializeField]
     public float chargeTimer;
+    public GameObject burst;
     [SerializeField]
     bool goingDown;
     // Start is called before the first frame update
@@ -64,6 +65,11 @@ public class DestroyBlocks : MonoBehaviour
                 {
 
                     GameObject newObject = Instantiate(DestroyCollider, hit.point, Quaternion.identity);
+                    GameObject particle = Instantiate(burst, hit.point, Quaternion.identity);
+                    particle.transform.localScale = new Vector3(chargeTimer, chargeTimer, chargeTimer);
+
+
+
                     //instantiate the particle effects
                     newObject.transform.localScale = new Vector3(chargeTimer, chargeTimer, chargeTimer);
                     //sound effect plays
