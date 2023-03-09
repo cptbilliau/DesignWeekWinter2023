@@ -14,7 +14,7 @@ public class DestroyBlocks : MonoBehaviour
     [SerializeField]
     bool isCharging;
     [SerializeField]
-    float chargeTimer;
+    public float chargeTimer;
     [SerializeField]
     bool goingDown;
     // Start is called before the first frame update
