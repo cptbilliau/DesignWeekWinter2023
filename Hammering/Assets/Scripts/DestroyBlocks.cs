@@ -86,7 +86,8 @@ public class DestroyBlocks : MonoBehaviour
                     //instantiate the particle effects
                     GameObject particle = Instantiate(burst, hit.point, Quaternion.identity);
                     particle.transform.localScale = new Vector3(colliderSize, colliderSize, colliderSize);
-                    
+                   
+
                     //sound effect plays
                     GetComponent<MusicManager>().anvilHit();
 
