@@ -5666,6 +5666,7 @@ MonoBehaviour:
   heatCoolingSpeed: 4
   isCharging: 0
   chargeTimer: 0
+  burst: {fileID: 202015859}
   goingDown: 0
 --- !u!114 &519420034
 MonoBehaviour:

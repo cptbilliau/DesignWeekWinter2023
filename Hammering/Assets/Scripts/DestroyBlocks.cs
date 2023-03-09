@@ -18,6 +18,7 @@ public class DestroyBlocks : MonoBehaviour
     public GameObject burst;
     [SerializeField]
     bool goingDown;
+    float colliderSize;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +47,21 @@ public class DestroyBlocks : MonoBehaviour
 
         if (heatLevel >= 0)
         {
+            switch (chargeTimer)
+            {
+                case > 0 and <= 0.5f:
+                    colliderSize = 0.05f;
+                    break;
+                case > 0.5f and <= 1f:
+                    colliderSize = 0.2f;
+                    break;
+                case > 1f and <= 1.5f:
+                    colliderSize = 0.4f;
+                    break;
+                case > 1.5f and <= 2f:
+                    colliderSize = 0.6f;
+                    break;
+            }
 
 
 
@@ -63,15 +79,14 @@ public class DestroyBlocks : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit, 100))
                 {
-
+                    //instantiate the collider
                     GameObject newObject = Instantiate(DestroyCollider, hit.point, Quaternion.identity);
-                    GameObject particle = Instantiate(burst, hit.point, Quaternion.identity);
-                    particle.transform.localScale = new Vector3(chargeTimer, chargeTimer, chargeTimer);
-
-
+                    newObject.transform.localScale = new Vector3(colliderSize, colliderSize, colliderSize);
 
                     //instantiate the particle effects
-                    newObject.transform.localScale = new Vector3(chargeTimer, chargeTimer, chargeTimer);
+                    GameObject particle = Instantiate(burst, hit.point, Quaternion.identity);
+                    particle.transform.localScale = new Vector3(colliderSize, colliderSize, colliderSize);
+                    
                     //sound effect plays
                     GetComponent<MusicManager>().anvilHit();
 
